@@ -1,27 +1,51 @@
-# Kanban
+# Kanban Board App 📋
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
+This repository contains a Kanban board web application developed in Angular 17, utilizing Firebase for authentication and Firestore as the database. The project was inspired by the course available at [FireShip.io](https://fireship.io/courses/angular/).
 
-## Development server
+## Features 🚀
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Board Management:** Create, edit, and delete boards to organize your tasks.
+- **Custom Cards:** Add and manage cards with customized content within each board.
+- **Card Movement:** Change the status of cards by dragging and dropping them into corresponding columns.
 
-## Code scaffolding
+## Installation 🛠️
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Clone this repository to your local machine using `git clone`.
+2. Install dependencies using npm or yarn:
 
-## Build
+   ```bash
+   npm install
+   ```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+3. Configure your Firebase project:
 
-## Running unit tests
+   - Create a project on [Firebase](https://console.firebase.google.com/).
+   - Obtain your Firebase project configuration (credentials).
+   - Paste the Firebase configuration into the `app.module.ts` file in the root of the project. You can find where to insert the configuration by following the setup instructions provided in the Firebase documentation or tutorials.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Usage 🚀
 
-## Running end-to-end tests
+Once you have installed the dependencies and configured your Firebase project, you can run the application locally using the following command:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+npm start
+```
 
-## Further help
+This will launch the application in your default browser. From there, you can start creating boards and managing your tasks.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Demo 🌐
+
+You can see a live demo of this application [here](https://firestarter.fireship.io/kanban).
+
+## Contributing 🤝
+
+Contributions are welcome! If you want to improve this application, make sure to follow these guidelines:
+
+1. Open an issue to discuss the change you would like to make.
+2. Fork the repository and create a new branch for your contribution (`git checkout -b feature/new-feature`).
+3. Make your changes and commit them with clear explanations.
+4. Submit your changes via a pull request.
+
+## License 📝
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
