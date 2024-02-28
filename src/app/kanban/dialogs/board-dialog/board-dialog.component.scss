@@ -1,0 +1,15 @@
+mat-card {
+  color: white;
+
+  mat-card-content {
+    margin-top: 16px;
+  }
+
+  mat-card-actions {
+    margin: 0 8px 8px 8px;
+
+    button {
+      margin-right: 8px;
+    }
+  }
+}

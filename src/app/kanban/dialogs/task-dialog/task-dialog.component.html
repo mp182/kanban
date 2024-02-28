@@ -1,0 +1,25 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Task</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-form-field>
+      <mat-label>Task description</mat-label>
+      <textarea matInput [(ngModel)]="data.task.description"></textarea>
+    </mat-form-field>
+    <br />
+    <mat-button-toggle-group
+      #group="matButtonToggleGroup"
+      [(ngModel)]="data.task.label"
+    >
+      <mat-button-toggle *ngFor="let opt of labelOptions" [value]="opt">
+        <mat-icon [ngClass]="opt"> check_circle </mat-icon>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>
+      {{ data.isNew ? "Add Task" : "Update Task" }}
+    </button>
+  </mat-card-actions>
+</mat-card>

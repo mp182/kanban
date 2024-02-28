@@ -1,0 +1,11 @@
+@if (canDelete) {
+<button mat-button color="warn" (click)="deleteBoard()">
+  <mat-icon>delete</mat-icon>
+  <span>Confirm</span>
+</button>
+<button mat-button (click)="cancel()">Cancel</button>
+} @else {
+<button mat-icon-button color="warn" (click)="prepareForDelete()">
+  <mat-icon>delete</mat-icon>
+</button>
+}

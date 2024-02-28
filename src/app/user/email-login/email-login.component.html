@@ -1,0 +1,90 @@
+<mat-card>
+  @if (isSignup) {
+  <div>
+    <h3>Create Account</h3>
+
+    <button mat-stroked-button (click)="changeType('login')">
+      Returning user?
+    </button>
+  </div>
+  } @else if (isLogin) {
+  <div>
+    <h3>Sign In</h3>
+    <button size="small" mat-stroked-button (click)="changeType('signup')">
+      New user?
+    </button>
+  </div>
+  } @else if (isPasswordReset) {
+  <div>
+    <h3>Reset Password</h3>
+    <button size="small" mat-button (click)="changeType('login')">Back</button>
+  </div>
+  }
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field [color]="email?.valid ? 'accent' : 'primary'">
+      <input
+        autocomplete="off"
+        formControlName="email"
+        matInput
+        placeholder="Email"
+        type="email"
+      />
+
+      @if (email?.invalid && email?.dirty) {
+      <mat-error> You must enter a valid email address </mat-error>
+      }
+    </mat-form-field>
+
+    @if (!isPasswordReset) {
+    <mat-form-field [color]="email?.valid ? 'accent' : 'primary'">
+      <input
+        autocomplete="off"
+        formControlName="password"
+        matInput
+        placeholder="Password"
+        type="password"
+      />
+
+      @if (password?.invalid && password?.dirty) {
+      <mat-error> Password must be at least 6 characters long </mat-error>
+      }
+    </mat-form-field>
+    } @if (isSignup) {
+    <mat-form-field [color]="passwordDoesMatch ? 'accent' : 'warn'">
+      <input
+        autocomplete="off"
+        formControlName="passwordConfirm"
+        matInput
+        placeholder="Confirm password"
+        type="password"
+      />
+
+      @if (passwordConfirm?.dirty && !passwordDoesMatch) {
+      <mat-error> Password does not match </mat-error>
+      }
+    </mat-form-field>
+    }
+
+    <mat-error class="server-error">{{ serverMessage }}</mat-error>
+
+    @if (isPasswordReset) {
+    <button [disabled]="loading" mat-stroked-button type="submit">
+      Send Reset Email
+    </button>
+    } @else {
+    <button
+      [disabled]="form.invalid || !passwordDoesMatch || loading"
+      color="accent"
+      mat-raised-button
+      type="submit"
+    >
+      Submit
+    </button>
+    }
+  </form>
+
+  @if (isLogin && !isPasswordReset) {
+  <button (click)="changeType('reset')" mat-button>Forgot password?</button>
+  }
+</mat-card>

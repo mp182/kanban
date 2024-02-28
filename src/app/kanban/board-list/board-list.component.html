@@ -1,0 +1,23 @@
+<div
+  (cdkDropListDropped)="drop($event)"
+  cdkDropList
+  cdkDropListOrientation="horizontal"
+  class="boards"
+>
+  @for (board of boards$ | async; track $index) {
+  <app-board cdkDrag [board]="board">
+    <mat-icon cdkDragHandle class="handle"> drag_indicator </mat-icon>
+  </app-board>
+  }
+
+  <div class="board-button">
+    <button
+      (click)="openBoardDialog()"
+      cdkDragDisabled
+      color="accent"
+      mat-raised-button
+    >
+      New Board
+    </button>
+  </div>
+</div>

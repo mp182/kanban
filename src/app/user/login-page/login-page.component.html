@@ -1,0 +1,21 @@
+@if (!(user$ |async)) {
+<div>
+  <h1>Login</h1>
+
+  <button mat-raised-button appGoogleSignin>
+    <img src="/assets/google-logo.svg" /> Login with Google
+  </button>
+
+  <h5>OR</h5>
+
+  <app-email-login></app-email-login>
+</div>
+} @else {
+<div>
+  <p>
+    Logged in as <strong>{{ (user$ | async)?.email }}</strong>
+  </p>
+
+  <button mat-stroked-button (click)="logout()">Logout</button>
+</div>
+}
